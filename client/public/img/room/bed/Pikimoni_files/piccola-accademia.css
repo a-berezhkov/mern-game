@@ -1,0 +1,939 @@
+/*!
+ * Start Bootstrap - Shop Homepage HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+html,body {
+    /*padding-top: 70px;*/ /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  height: 100%;
+	/*overflow:hidden;*/
+}
+
+/*
+#panel {
+  width: 100%;
+  height: 100%;
+}
+*/
+
+.topbar {
+    position: relative;
+    height: 8vh;
+    margin-bottom: 0.5vh;
+    background-color: #ddd;
+}
+
+.active-topbar {
+  position: relative;
+  height: 8vh;
+  margin-bottom: 0.5vh;
+  background-color: lightgreen;
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 5px;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.footer {
+    height: 4vh;
+    background-color: #ddd;
+    margin-top: 0.5vh;
+}
+
+.social a {
+  background: #b0b7bf;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  color: #fff;
+  text-align: center;
+}
+.social a:hover {
+  background: #778492;
+}
+.social a .fa {
+  font-size: 20px;
+  padding-top: 8px;
+}
+.fill { 
+    min-height: 100%;
+}
+.fill50 { 
+    height: 50%;
+}
+.fill70 { 
+    height: 70%;
+}
+.fill30 { 
+    height: 30%;
+}
+.fill80 { 
+    height: 80%;
+}
+.fill90 { 
+    height: 90%;
+}
+.fill20 { 
+    height: 20%;
+}
+.fill10 { 
+    height: 10%;
+}
+
+.circleBase {
+    border: 3px solid red;
+}
+
+.box-front {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+}
+.box-back {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+}
+
+.draggable-abs {
+	background-color: transparent;
+    z-index: 5;
+    position: absolute;
+    cursor: pointer;
+}
+.draggable-rel {
+	background-color: transparent;
+    z-index: 5;
+    position: relative;
+    cursor: pointer;
+}
+
+.selected-image {
+	background-color: lightblue;
+}
+.selected-image-green {
+	background-color: lightgreen;
+}
+.selected-image-red {
+	background-color: lightcoral;
+}
+.red-bg {
+	background-color: red;
+	border: 1px solid red;
+}
+.orange {
+  color: orange;  
+}
+.gold{
+  color: orange;  
+}
+.lightblue{
+  color: blue;
+}
+.border-orange {
+  border: solid 3px orange;
+  padding: 0;
+}
+.border-transp {
+  border: solid 3px transparent;
+  padding: 0;
+}
+.selected-border {
+  border: solid 5px orange;
+  margin: 10px;
+}
+.selected-border-0 {
+  border: solid 5px orange;
+}
+.selected-border-red {
+  border: solid 5px red;
+  margin: 10px;
+}
+.selected-border-green {
+  border: solid 5px green;
+  margin: 10px;
+}
+.selected-border-white {
+  border: solid 5px white;
+  margin: 10px;
+}
+.no-border {
+  border: solid 5px transparent;
+  margin: 10px;
+}
+.selected-border-gray {
+  border: solid 5px #ddd;
+  margin: 10px;
+}
+.selected-border-red-5 {
+  border: solid 5px red;
+  margin: 10px;
+}
+.selected-border-lightblue{
+  border: solid 5px pink;
+  margin: 10px;
+}
+.selected-border-blue{
+  border: solid 5px blue;
+  margin: 10px;
+}
+.selected-border-purple{
+  border: solid 5px purple;
+  margin: 10px;
+}
+.selected-border-black{
+  border: solid 5px black;
+  margin: 10px;
+}
+.red, red {
+	color: red;
+}
+.green, green {
+  color:green;
+}
+.blue, blue {
+  color:#0066ff;
+}
+.purple, purple {
+  color: #800080;
+}
+.yellow, yellow {
+  -webkit-text-fill-color: yellow;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+.white, white{
+   -webkit-text-fill-color: white;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
+.cyan {
+  color:#33D5FF;
+}
+.cyan-stroke{
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #33D5FF;
+}
+.indigo {
+  color: #1b1dcc;
+}
+.pink {
+  color: #FF69B4;
+}
+.purple {
+  color: #9400D3;
+}
+.orange-stroke{
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: orange;
+}
+.purple-stroke{
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #9400D3;
+}
+.pink-stroke{
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #FF69B4;
+}
+.indigo-stroke{
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #1b1dcc;
+}
+.green-stroke, green-stroke{
+   -webkit-text-fill-color: white;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: green;
+}
+.red-stroke, red-stroke{
+   -webkit-text-fill-color: white;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: red;
+}
+.blue-stroke, blue-stroke{
+   -webkit-text-fill-color: white;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: #0066ff;
+}
+.fat, fat {
+  font-weight:bold;
+  -webkit-text-stroke-width: 2px;
+}
+.thin, thin{
+  font-weight:lighter;
+}
+.tiny, tiny{
+  font-size:70%;
+}
+.pdf-thumb-box {
+  position: relative !important;
+  overflow: hidden;
+}
+.pdf-thumb-box-overlay {
+  text-align: center;
+  position: absolute;
+  background-color: rgba(211, 211, 211, 0.50);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.vvv {
+  visibility: visible;
+}
+.hhh {
+  visibility: hidden;
+}
+
+.myimage {
+  background: transparent no-repeat top center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+  height: 500px;
+}
+
+.img-responsive-h {
+  display: block;
+  width: auto;
+  max-height: 100%;
+}
+.img-responsive-h50 {
+  display: block;
+  width: auto;
+  max-height: 50%;
+}
+.h50 {
+  height: 50px;
+}
+
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  height: 150px;
+  width: 150px;
+}
+.habitat{
+    position: absolute;
+    top: 80%;
+    left: 85%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  height: 100px;
+  width: 100px;
+}
+.bpopup{
+    position: absolute;
+    bottom: 0;
+    left: 325px;
+  height: 150px;
+  width: 150px;
+}
+.animal{
+  position: absolute;
+  height: 150px;
+  width: 150px;
+}
+.overlay{
+  display: inline;
+  position: absolute;
+  transition: background 0.2s ease, padding 0.8s linear;
+  width: 100%;
+  height: 100%;
+}
+.text-red{
+  color: red;
+}
+.fixme{
+  height: 500px;
+  width: 800px;
+  position: relative;
+}
+.wrapper {
+  width: 100%;
+  /* whatever width you want */
+  display: inline-block;
+  position: relative;
+}
+.wrapper:after {
+  padding-top: 56.25%;
+  /* 16:9 ratio */
+  display: block;
+  content: '';
+}
+.main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* fill parent */
+  background-color: deepskyblue;
+  /* let's see it! */
+  color: white;
+}
+.ddd {
+  color: #ddd;
+}
+.circle {
+  border-radius: 50%;
+}
+.bord2violet {
+  border: 2px solid blueviolet;
+}
+.square {
+  border-radius: 3%;
+}
+.sortable-item {
+	padding: 5px 10px;
+	margin: 5px 0;
+	border: 2px solid #444;
+	border-radius: 5px;
+	cursor: move;
+}
+.sortable-item1 {
+	padding: 5px 10px;
+	margin: 5px 0;
+	border: 2px solid #444;
+  background-color: lightgreen;
+	border-radius: 5px;
+	cursor: move;
+}
+.sortable-item2 {
+	padding: 5px 10px;
+	margin: 5px 0;
+	border: 2px solid #444;
+  background-color: lightpink;
+	border-radius: 5px;
+	cursor: move;
+}
+.center {
+  margin: 0 auto;
+}
+.planet {
+  position: relative;
+}
+.bubbles{
+  background-image: url(https://pikimoni.blob.core.windows.net/img/fishing/bubbles2.gif);
+}
+.ocean{
+  background-image: url(https://pikimoni.blob.core.windows.net/img/fishing/bg.jpeg);
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+}
+.net{
+  cursor:url(https://pikimoni.blob.core.windows.net/img/fishing/Fishing_Net.gif), auto;
+}
+.brush{
+  cursor:url(https://pikimoni.blob.core.windows.net/img/blue-car/brush1.png), auto;
+}
+.magic-wand{
+  cursor:url(https://pikimoni.blob.core.windows.net/img/be-good/Magic_wand.gif), auto;
+}
+.fishbowl{
+  background-image: url(https://pikimoni.blob.core.windows.net/img/fishing/fishbowl.jpg);
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+}
+.crocodile{
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+  float:left;
+  position:relative;
+  width:90vw;
+  height:80vh ;
+}
+.bg-slap{
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  position:relative;
+  width:90vw;
+  height:80vh ;
+}
+
+.usFlag {
+  background-image:url(https://pikimoni.blob.core.windows.net/img/public/flags/4x3/us.svg);
+  background-repeat:no-repeat;
+  background-size: 40px 30px;
+  background-position: center;
+}
+.gbFlag {
+  background-image:url(https://pikimoni.blob.core.windows.net/img/public/flags/4x3/gb.svg);
+  background-repeat:no-repeat;
+  background-size: 40px 30px;
+  background-position: center;
+}
+.ruFlag {
+  background-image:url(https://pikimoni.blob.core.windows.net/img/public/flags/4x3/ru.svg);
+  background-repeat:no-repeat;
+  background-size: 40px 30px;
+  background-position: center;
+}
+.auFlag {
+  background-image:url(https://pikimoni.blob.core.windows.net/img/public/flags/4x3/au.svg);
+  background-repeat:no-repeat;
+  background-size: 40px 30px;
+  background-position: center;
+}
+.caFlag {
+  background-image:url(https://pikimoni.blob.core.windows.net/img/public/flags/4x3/ca.svg);
+  background-repeat:no-repeat;
+  background-size: 40px 30px;
+  background-position: center;
+}
+.frFlag {
+  background-image:url(https://pikimoni.blob.core.windows.net/img/public/flags/4x3/fr.svg);
+  background-repeat:no-repeat;
+  background-size: 40px 30px;
+  background-position: center;
+}
+.maFlag {
+  background-image:url(https://pikimoni.blob.core.windows.net/img/public/flags/4x3/ma.svg);
+  background-repeat:no-repeat;
+  background-size: 40px 30px;
+  background-position: center;
+}
+.us {
+    position: absolute;
+    top: 16%;
+    left: 4%;
+    font-size: 18px;
+    width: 23%;
+    height: 25%;
+}
+.gb {
+    position: absolute;
+    top: 13%;
+    left: 36%;
+    font-size: 18px;
+    width: 7%;
+    height: 15%;
+}
+.ru {
+    position: absolute;
+    top: 1%;
+    left: 48%;
+    font-size: 18px;
+    width: 48%;
+    height: 35%;
+}
+.au {
+    position: absolute;
+    top: 57%;
+    left: 70%;
+    font-size: 18px;
+    width: 24%;
+    height: 30%;
+}
+.ca {
+  position: absolute;
+  top: 8%;
+  left: 6%;
+  font-size: 18px;
+  width: 25%;
+  height: 25%;
+}
+.fr {
+  position: absolute;
+  top: 23%;
+  left: 35%;
+  font-size: 18px;
+  width: 8%;
+  height: 10%;
+}
+.ma {
+  position: absolute;
+  top: 34%;
+  left: 32%;
+  font-size: 18px;
+  width: 8%;
+  height: 10%;
+}
+.caFinal {
+  width: 10vw;
+  position: absolute;
+}
+.ruFinal {
+  width: 10vw;
+  position: absolute;
+  left:30%
+}
+.frFinal {
+  width: 10vw;
+  position: absolute;
+  bottom:0;
+}
+.maFinal {
+  width: 10vw;
+  position: absolute;
+}
+.img-fit {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.pad {
+  float:left;
+  position:relative;
+  padding-right:15px;
+  padding-left:15px; 
+}
+.binoculars {
+    position: relative;
+    background-size: contain;
+}
+svg {
+  position: absolute;
+}
+
+/* when hiding the picture */
+.ng-hide-add#panel        { animation:0.5s lightSpeedOut ease; }
+
+/* when showing the picture */
+.ng-hide-remove#panel      { animation:0.5s flipInX ease; }
+
+.ng-hide-remove.feed      { animation:0.5s flipIn ease; }
+.ng-hide-remove.notify      { animation:0.5s slideInDown ease; }
+
+.slap.ng-hide { animation:0.5s bounceOut ease; }
+
+.overlayDiv {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 15;
+  cursor: pointer;
+}
+
+.ng-hide-add#out        { animation:0.5s lightSpeedOut ease; }
+.ng-show-add#in        { animation:0.5s lightSpeedIn ease; }
+
+.middle {
+  display: flex;
+  align-items: center;	/* align vertical */
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  overflow: hidden;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;	/* align vertical */
+  justify-content: space-between
+}
+
+.space-around {
+  display: flex;
+  justify-content: space-around
+}
+
+.space-wrap {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin5{
+  margin:5px;
+}
+.margin15{
+  margin:15px;
+}
+.rel {
+  float:left;
+  position:relative;
+}
+.bubble {
+  display: table; 
+}
+.bubble p {
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
+.dashed {
+  border-style: dashed;
+  border-width: 2px;
+  margin: 10px;
+}
+.border-green{
+  border-color: green;
+}
+.six-bottles{
+  background-image: url(https://pikimoni.blob.core.windows.net/icanspeak/6-green-bottles/wall.gif);
+}
+.pa-link:hover{
+  color:orange;
+  cursor:pointer;
+}
+.not-visible {
+  visibility: hidden;
+}
+.bottombar {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+}
+.vh5 {
+  height: 5vh;
+}
+.vh60 {
+  height: 60vh;
+}
+.vh30 {
+  height: 30vh;
+}
+.fgrow1 {
+  flex-grow: 1;
+}
+.vdir {
+  justify-content: center;
+  flex-direction: column;
+}
+.abs {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.beg1{
+  max-width: 65.22vw;
+}
+.beg2{
+  max-width: 35.78vw;
+}
+.z10{
+  z-index: 10;
+}
+.textbox {
+  margin: 2px;
+  padding: 2px;
+}
+.bottom-right {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+}
+.top-right {
+  position: fixed;
+  top: 4vh;
+  right: 15px;
+  z-index: 10;
+}
+.w100 {
+  width: 150px
+}
+.border1orange{
+  border: 1px solid orange
+}
+.border1green{
+  border: 1px solid green
+}
+.border1ddd{
+  border: 1px solid #ddd
+}
+.badge-active {
+  background-color: #337ab7;
+}
+.indent {
+  text-indent: 1.5em;
+}
+.hideOverflow {
+  overflow: hidden;
+}
+.bg-ddd {
+  background-color: #ddd;
+}
+.ng-hide-remove.roll { 
+  animation:0.5s rollOut ease;
+}
+.ng-hide-remove.coin { 
+  animation:0.5s flipOutY ease;
+}
+.pa-tooltip {
+  width: 500px;
+}
+.userProfile {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  border: 1px solid #ddd;
+  background-color: rgba(0,0,0,.03);
+}
+
+.sidebar.ng-hide-add { animation:0.5s slideOutRight ease; }
+.sidebar.ng-hide-add-active { animation:0.5s slideOutRight ease; }
+.sidebar.ng-hide-remove { animation:0.5s slideInRight ease; }
+.sidebar.ng-hide-remove-active { animation:0.5s slideInRight ease; }
+
+.brown {
+  color: #CD853F;
+}
+
+.fixedbutton {
+  position: fixed;
+  bottom: 0px;
+  right: 0px; 
+}
+.z5{
+  z-index: 5;
+}
+flippy-front {
+  overflow: hidden;
+}
+flippy-back {
+  overflow: hidden;
+}
+.white-space-pre {
+  white-space: pre;
+}
+
+
+.flip-card {
+  background-color: transparent;
+  border: 1px dashed #ddd;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.rotate-card {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+hr.imageResult {
+  border: 5px solid rgb(10, 72, 165);
+  border-radius: 5px;
+  width: 100%;
+}
+.opaque {
+  opacity: 0.3;
+}
+
+@font-face {
+  font-family: 'opendyslexic';
+	src: url('https://pikimoni.blob.core.windows.net/cdn/opendyslexic-font/OpenDyslexic-Regular.woff');
+	font-style: normal;
+	font-weight: normal;
+} 
+
+@font-face {
+	font-family: 'opendyslexic';
+	src: url('https://pikimoni.blob.core.windows.net/cdn/opendyslexic-font/OpenDyslexic-Italic.woff');
+	font-style: italic;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'opendyslexic';
+	src: url('https://pikimoni.blob.core.windows.net/cdn/opendyslexic-font/OpenDyslexic-Bold.woff');
+	font-weight: bold;
+	font-style: normal;
+} 
+
+@font-face {
+	font-family: 'opendyslexic';
+	src: url('https://pikimoni.blob.core.windows.net/cdn/opendyslexic-font/OpenDyslexic-BoldItalic.woff');
+	font-weight: bold;
+	font-style: italic;
+} 
+
+
+.opendyslexic {
+	font-family:opendyslexic !important;
+}

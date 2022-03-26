@@ -1,0 +1,66 @@
+angular.module('paApp', ['logglyLogger', 'ui.router', 'ngAnimate', 'ui.bootstrap', 'ui.sortable', 'ngAudio','ngSanitize','timer','angular-scroll-animate','duScroll','config','toaster','mdMarkdownIt','angular-intro','colorpicker'])
+
+.provider('runtimeStates', ['$stateProvider', function runtimeStates($stateProvider) {
+  // runtime dependencies for the service can be injected here, at the provider.$get() function.
+  this.$get = function() {
+    return { 
+      addState: function(state) { 
+        $stateProvider.state(state);
+      }
+    }
+  }
+}])
+
+.config(['LogglyLoggerProvider', 'ENV', function( LogglyLoggerProvider,ENV ) {
+	if (ENV === 'production'){
+		LogglyLoggerProvider
+			.inputToken('883abb3f-d933-46da-8dd3-78ff65c959af')
+			.includeUserAgent(true)
+			.sendConsoleErrors(true);
+	}
+}])
+
+.config(['$httpProvider', function($httpProvider) {
+    //$httpProvider.interceptors.push('timestampMarker');
+    $httpProvider.interceptors.push('authInterceptor');
+}])
+
+.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}])
+
+.run(['$state','$window','$rootScope','paCache','config', function ($state,$window,$rootScope,paCache,config) {
+	
+	if (!$window.location.hash) {
+		$window.location.href='#!/pa/dashboard';
+	}
+	$rootScope.$on('$stateChangeSuccess', function() {
+		switch($state.current.name){
+			case 'students':
+				paCache.setCurrentMode('L');
+				break;
+			case 'select-student':
+				paCache.setCurrentMode('L');
+				break;
+			case 'dashboard':
+				paCache.setCurrentMode(null);
+				break;
+			case 'profile':
+				paCache.setCurrentMode(null);
+				break;
+			case 'lessons':
+				paCache.setCurrentMode(null);
+				break;
+			case 'payments':
+				paCache.setCurrentMode(null);
+				break;
+			case 'change-password':
+				paCache.setCurrentMode(null);
+				break;
+		}
+	});
+
+	$rootScope.storageBaseUrl=config.storageBaseUrl;
+	$rootScope.baseUrl=config.baseUrl;
+
+}]);
