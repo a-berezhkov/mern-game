@@ -1,0 +1,40 @@
+.signin__caption {
+  margin: 0 auto;
+  padding: 25px 0;
+  max-width: 576px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.caption {
+  margin-left: 20px;
+}
+
+.signin__wraper {
+  margin-bottom: 50px;
+}
+
+.signin__form {
+  margin: 0 auto;
+  max-width: 576px;
+}
+
+.signin__label {
+  display: block;
+  padding: 5px 0;
+}
+
+.signin__input {
+  margin-top: 5px;
+}
+
+.focus {
+  margin: 0;
+  font-size: 16px;
+  color: #ff0000;
+}
+
+.signin__submit {
+  user-select: none;
+}
