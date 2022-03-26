@@ -1,8 +1,8 @@
 export const navItems = [
-  { title: "Home", href: "/" },
+  { title: "Home", href: "/home" },
   { title: "Платформа", href: "/platform" },
   { title: "Стена", href: "/board" },
-  { title: "Стоимость", href: "/cost" },
+  { title: "Стоимость", href: "/costs" },
   { title: "Контакты", href: "/contacts" },
   { title: "Войти", href: "/login" },
   { title: "Зарегистрироваться", href: "/signin" },
