@@ -61,3 +61,7 @@ export const signinForm = [
     placeholder: "+7XXXXXXXXXX",
   },
 ];
+
+export const monster = [
+  { id: "b1", body: "/img/monster/img/body/blue-body.gif" },
+];

@@ -1,0 +1,46 @@
+.monster {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 80px;
+  font-weight: 400;
+  text-align: center;
+  background-color: rgba(252, 176, 69, 1);
+  background-image: linear-gradient(
+    90deg,
+    rgba(210, 18, 73, 0.9164040616246498) 22%,
+    rgba(251, 252, 69, 1) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.frame {
+  background: url("../../../public/img/monster/img/frame 3.png") no-repeat
+    center / cover;
+  width: 400px;
+  height: 600px;
+  border: 1px double #f31616;
+  border-radius: 5px;
+}
+
+.parts {
+  width: 800px;
+  height: 600px;
+  border: 1px double #f31616;
+  border-radius: 5px;
+}
+
+.monster__body {
+  position: absolute;
+  display: inline-block;
+}
+
+.monster__body img {
+  margin-right: 25px;
+  width: 60px;
+  height: 80px;
+}
