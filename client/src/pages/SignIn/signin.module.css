@@ -2,9 +2,8 @@
   margin: 0 auto;
   padding: 25px 0;
   max-width: 576px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 40px;
-  font-weight: 800;
+  font-size: 2.85em;
+  font-weight: 500;
 }
 
 .caption {
@@ -35,6 +34,17 @@
   color: #ff0000;
 }
 
-.signin__submit {
-  user-select: none;
+.signin__btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+/* .main__btn {
+  background-color: #ff0000;
+  border: 0;
+}
+
+.main__btn:hover {
+  background-color: #d30707;
+} */

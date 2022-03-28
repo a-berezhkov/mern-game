@@ -2,8 +2,9 @@ import React from "react";
 import { Button } from "reactstrap";
 import { useForm } from "react-hook-form";
 import s from "./signin.module.css";
+import { Link } from "react-router-dom";
 
-const Signin = ({ caption }) => {
+export const Signin = ({ caption }) => {
   const {
     register,
     handleSubmit,
@@ -169,17 +170,22 @@ const Signin = ({ caption }) => {
             </select>
           </div>
         </div>
-        <Button
-          className={s.signin__submit}
-          color="warning"
-          type="submit"
-          disabled={!isValid}
-        >
-          Продолжить
-        </Button>
+        <div className={s.signin__btns}>
+          <Button
+            className={s.signin__submit}
+            color="warning"
+            type="submit"
+            disabled={!isValid}
+          >
+            Продолжить
+          </Button>
+          <Link to="/">
+            <Button className={s.main__btn} color="outline-primary">
+              На Главную
+            </Button>
+          </Link>
+        </div>
       </form>
     </div>
   );
 };
-
-export default Signin;

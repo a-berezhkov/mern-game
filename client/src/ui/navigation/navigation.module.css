@@ -4,32 +4,35 @@
 
 .navigation__navbrand {
   font-size: 36px;
-  color: #4ea4cc;
   text-transform: uppercase;
 }
 
 .navigation__navitem {
   position: relative;
-  transition: 0.3s all;
+  transition: 0.3s;
 }
 
 .navigation__navitem:hover::after {
   position: absolute;
   content: "";
   left: 0;
-  bottom: 5px;
+  bottom: -10px;
   width: 100%;
   height: 1px;
-  background: #158ac0;
-  transition: 0.3s all;
+  background: #f08080;
+  transition: 0.3s;
 }
 
 .navigation__navlink {
-  color: #4ea4cc;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #3399ff;
   transition: 0.3s all;
 }
 
-.navigation__navlink:hover {
-  color: #158ac0;
-  transition: 0.3s all;
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 30px;
 }
