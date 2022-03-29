@@ -64,4 +64,6 @@ export const signinForm = [
 
 export const monster = [
   { id: "b1", body: "/img/monster/img/body/blue-body.gif" },
+  { id: "b12", body: "/img/monster/img/body/blue-body.gif" },
+  { id: "b13", body: "/img/monster/img/body/blue-body.gif" },
 ];
