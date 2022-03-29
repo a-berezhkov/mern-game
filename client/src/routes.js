@@ -1,30 +1,38 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Redirect } from "react-router-dom";
+import { Main } from "./pages/main/main";
 import { Home } from "./pages/home/home";
-import { Login } from "./pages/login";
+import { Login } from "./pages/login/login";
 import { Platform } from "./pages/platform/platform";
+import { Board } from "./pages/board/board";
+import { Costs } from "./pages/costs/costs";
+import { Contacts } from "./pages/contacts/contacts";
+import { Signin } from "./pages/SignIn/signin";
+import { Monster } from "./ui/monster/monster";
 
 export const useRoutes = (isAuthenticated) => {
   if (isAuthenticated) {
     return (
-      <Switch>
-        <Route path="/home" exact>
-          <Home />
-        </Route>
-        <Route path="/platform" exact>
-          <Platform />
-        </Route>
-        <Redirect to="/home" />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/platform" element={<Platform />} />
+        <Route path="/board" element={<Board />} />
+        <Route path="/costs" element={<Costs />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/signin"
+          element={<Signin caption="Зарегистрироваться" />}
+        />
+        <Route path="/monster" element={<Monster />} />
+      </Routes>
     );
   }
 
   return (
-    <Switch>
-      <Route path="/" exact>
-        <Login />
-      </Route>
-      <Redirect to="/" />
-    </Switch>
+    <Routes>
+      <Route path="/signin" element={<Signin caption="Зарегистрироваться" />} />
+    </Routes>
   );
 };
