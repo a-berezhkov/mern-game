@@ -3,8 +3,11 @@ import { Button } from "reactstrap";
 import { useForm } from "react-hook-form";
 import s from "./signin.module.css";
 import { Link } from "react-router-dom";
+import { useHttp } from "../../hooks/http.hook";
 
 export const Signin = ({ caption }) => {
+  const {loading, request} = useHttp();
+
   const {
     register,
     handleSubmit,
@@ -13,6 +16,15 @@ export const Signin = ({ caption }) => {
   } = useForm({ mode: "all" });
 
   const onSubmit = (data) => {
+    const registerHandler = async () => {
+      try {
+        const res = await request('api/auth/register', 'POST', data);
+        console.log(res);
+      } catch (error) {
+        
+      }
+    }
+    registerHandler();
     console.log(JSON.stringify(data));
     reset();
   };
