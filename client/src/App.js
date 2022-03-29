@@ -5,7 +5,7 @@ import { Board } from "./pages/board/board";
 import { Costs } from "./pages/costs/costs";
 import { Contacts } from "./pages/contacts/contacts";
 import { Login } from "./pages/login/login";
-import { Signin } from "./pages/SignIn/signin";
+import { Signin } from "./pages/signin/signin";
 import { Monster } from "./ui/monster/monster";
 import { Routes, Route } from "react-router-dom";
 
