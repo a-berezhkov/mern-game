@@ -23,6 +23,7 @@ router.post(
         return res.status(400).json({
           errors: errors.array(),
           message: "Некорректные данные при регистрации",
+          type: "warning",
         });
       }
 
@@ -31,9 +32,9 @@ router.post(
       const candidate = await User.findOne({ email });
 
       if (candidate) {
-        return res
-          .status(400)
-          .json({ message: "Такой пользователь уже существует" });
+        return res.status(400).json({
+          message: "Такой пользователь уже существует",
+        });
       }
 
       const hashedPassword = await bcrypt.hash(password, 12);
@@ -41,11 +42,12 @@ router.post(
 
       await user.save();
 
-      res.status(201).json({ message: "Пользователь создан" });
+      res.status(201).json({ message: "Пользователь создан", type: "success" });
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: "Что-то полшо не так, попробуйте снова" });
+      res.status(500).json({
+        message: "Что-то полшо не так, попробуйте снова",
+        type: "danger",
+      });
     }
   }
 );
@@ -65,6 +67,7 @@ router.post(
         return res.status(400).json({
           errors: errors.array(),
           message: "Некорректные данные при входе в систему",
+          type: "danger",
         });
       }
 
@@ -73,26 +76,35 @@ router.post(
       const user = await User.findOne({ email });
 
       if (!user) {
-        return res.status(400).json({ message: "Пользователь не найден" });
+        return res
+          .status(400)
+          .json({ message: "Пользователь не найден", type: "danger" });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
-        return res
-          .status(400)
-          .json({ message: "Неверный пароль, попробуйте снова" });
+        return res.status(400).json({
+          message: "Неверный пароль, попробуйте снова",
+          type: "danger",
+        });
       }
 
       const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
         expiresIn: "1h",
       });
 
-      res.json({ token, userId: user.id });
+      res.json({
+        token,
+        userId: user.id,
+        message: "Добро пожаловать",
+        type: "success",
+      });
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: "Что-то полшо не так, попробуйте снова" });
+      res.status(500).json({
+        message: "Что-то полшо не так, попробуйте снова",
+        type: "danger",
+      });
     }
   }
 );
