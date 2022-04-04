@@ -1,12 +1,16 @@
 import React from "react";
-import { Button } from "reactstrap";
-import { useForm } from "react-hook-form";
-import s from "./signin.module.css";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { useHttp } from "../../hooks/http.hook";
+import { Alert } from "../../ui/alert/alert";
+import { Button } from "reactstrap";
+import s from "./signin.module.css";
 
 export const Signin = ({ caption }) => {
-  const {loading, request} = useHttp();
+  const { loading, request } = useHttp();
+  const [alert, setAlert] = React.useState(false);
+  const [message, setMessage] = React.useState("");
+  const [type, setType] = React.useState("secondary");
 
   const {
     register,
@@ -18,12 +22,19 @@ export const Signin = ({ caption }) => {
   const onSubmit = (data) => {
     const registerHandler = async () => {
       try {
-        const res = await request('api/auth/register', 'POST', data);
+        const res = await request("api/auth/register", "POST", data);
+        setAlert(true);
+        setMessage(res.message);
+        setType(res.type);
+
         console.log(res);
       } catch (error) {
-        
+        setAlert(true);
+        setMessage(error.message);
+        setType(error.type);
+        console.log(error);
       }
-    }
+    };
     registerHandler();
     console.log(JSON.stringify(data));
     reset();
@@ -40,7 +51,11 @@ export const Signin = ({ caption }) => {
         />
         <span className={s.caption}>{caption}</span>
       </div>
-      <form className={s.signin__form} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={s.signin__form}
+        onSubmit={handleSubmit(onSubmit)}
+        onChange={(e) => (e.target.value = e.target.value.trim())}
+      >
         <div className={s.signin__wraper}>
           <div className="mb-3">
             <label className={s.signin__label} htmlFor="lastName">
@@ -167,19 +182,39 @@ export const Signin = ({ caption }) => {
           </div>
 
           <div className="mb-3">
-            <label className={s.signin__label} htmlFor="select">
-              Вы хотите зарегистрироваться, как:
+            <label className={s.signin__label} htmlFor="password">
+              Введите пароль для последующего входа:
               <sup style={{ color: "red" }}>*</sup>
             </label>
-            <select
-              name="role"
-              {...register("role")}
-              id="select"
-              className="form-select"
-            >
-              <option value="teacher">Преподаватель</option>
-              <option value="student">Ученик</option>
-            </select>
+            <input
+              type="password"
+              name="password"
+              {...register("password", {
+                required: "Это поле обязательно",
+                minLength: {
+                  value: 6,
+                  message: "Минимум 6 символов",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "Максимум 20 символов",
+                },
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                  message:
+                    "Недопустимый формат. Пароль должен иметь минимум одну заглавную букву, одну строчную букву, одну цифру и один специальный символ",
+                },
+              })}
+              id="password"
+              className="form-control"
+              autoComplete="off"
+            />
+          </div>
+          <div>
+            {errors?.password && (
+              <p className={s.focus}>{errors?.password?.message || "Error!"}</p>
+            )}
           </div>
         </div>
         <div className={s.signin__btns}>
@@ -198,6 +233,7 @@ export const Signin = ({ caption }) => {
           </Link>
         </div>
       </form>
+      {alert && <Alert type={type} title={message} />}
     </div>
   );
 };

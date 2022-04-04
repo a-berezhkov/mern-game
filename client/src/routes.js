@@ -7,7 +7,7 @@ import { Platform } from "./pages/platform/platform";
 import { Board } from "./pages/board/board";
 import { Costs } from "./pages/costs/costs";
 import { Contacts } from "./pages/contacts/contacts";
-import { Signin } from "./pages/SignIn/signin";
+import { Signin } from "./pages/signin/signin";
 import { Monster } from "./ui/monster/monster";
 
 export const useRoutes = (isAuthenticated) => {
@@ -20,7 +20,7 @@ export const useRoutes = (isAuthenticated) => {
         <Route path="/board" element={<Board />} />
         <Route path="/costs" element={<Costs />} />
         <Route path="/contacts" element={<Contacts />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login caption="Войти" />} />
         <Route
           path="/signin"
           element={<Signin caption="Зарегистрироваться" />}
